@@ -69,10 +69,6 @@ $data=mysqli_fetch_array($sql);
                     name="email" value="<?php echo $data['email'];?>">
             </div>
             
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Foto</label>
-                <input class="form-control" type="file" id="foto" name="foto">
-            </div>
             <button type="submit" value="proses" name="proses" class="btn btn-primary">Kirim</button>
     </div>
 
@@ -83,15 +79,13 @@ $data=mysqli_fetch_array($sql);
 include "koneksi.php";
 
 if(isset($_POST['proses'])){
-  mysqli_query($koneksi,"update data_siswa set
-  nama='$_POST[nama]',
-  alamat='$_POST[alamat]',
-  notelp='$_POST[notelp]',
-  gender='$_POST[jenkel]',
-  email='$_POST[email]',
-  foto='$_POST[foto]'
-where id='$_GET[id]'");
-   
+    mysqli_query($koneksi,"update data_siswa set
+    nama='$_POST[nama]',
+    alamat='$_POST[alamat]',
+    notelp='$_POST[notelp]',
+    gender='$_POST[jenkel]',
+    email='$_POST[email]'
+  where id='$_GET[id]'");
 
 
 

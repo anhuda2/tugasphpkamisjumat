@@ -27,7 +27,7 @@ include "koneksi.php";
 ?>
 <h3>Tambah Data Baru<h3>
     <div class="container">
-        <form action="postdata.php" method="post" enctype="multipart/form-data">
+        <form action="" method="post">
             <div class=" mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nama</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama"
@@ -64,21 +64,21 @@ include "koneksi.php";
                 <label for="formFile" class="form-label">Foto</label>
                 <input class="form-control" type="file" id="foto" name="foto">
             </div>
-            <button type="submit" value="submit" class="btn btn-primary">Kirim</button>
+            <td>
+    <input class="btn btn-lg btn-primary" type="submit" value="Simpan" name="proses">
+</td>
     </div>
 
 <?php
 include "koneksi.php";
 
 if(isset($_POST['proses'])){
-mysqli_query($koneksi, "insert into syllabus set  
-    year='$_POST[year]',
-    month='$_POST[month]',
-    week='$_POST[week]',
-    date='$_POST[date]',
-    mon='$_POST[mon]',
-    tue='$_POST[tue]',
-    wed='$_POST[wed]'");
+mysqli_query($koneksi, "insert into data_siswa set  
+nama='$_POST[nama]',
+alamat='$_POST[alamat]',
+notelp='$_POST[notelp]',
+gender='$_POST[jenkel]',
+email='$_POST[email]'");
 
 echo "Data barang baru telah tersimpan";
 echo "<meta http-equiv=refresh content=1;URL='database.php'>";}

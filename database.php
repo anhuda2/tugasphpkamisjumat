@@ -48,11 +48,11 @@
               <th scope="col">No HP</th>
               <th scope="col">Jenis kelamin</th>
               <th scope="col">Email</th>
-              <th scope="col">Foto</th>
               <th scope="col">Option</th>
             </tr>
             </tr>
           </thead>
+          <a class="btn btn-lg btn-primary" href="insert.php" role="button">Create New Data »</a>
           <tbody>
             <?php
             include "koneksi.php";
@@ -61,12 +61,7 @@
             $ambildata = mysqli_query($koneksi, "select * from data_siswa");
             while ($tampil = mysqli_fetch_array($ambildata)) {
 
-              //jika foto kosong maka tampilkan gambar default
-              if (($tampil['foto']) == "") {
-                $gambar = "Screenshot_1.png";
-              } else {
-                $gambar = $tampil['foto'];
-              }
+          
 
               echo "
                 <tr>
@@ -77,9 +72,7 @@
                     <td>$tampil[gender]</td>
                     <td>$tampil[email]</td>";
 
-              ?>
-              <td><img class="img-thumbnail" width="100" src="assets/<?= $gambar ?>" /></td>
-              <?php
+             
               echo "
                   <td><a href='edit.php?id=$tampil[id]'> Edit </a></td>
             <td><a href='delete.php?id=$tampil[id]'> Delete </a></td>
